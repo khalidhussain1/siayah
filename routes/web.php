@@ -28,7 +28,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'user'], function () {
     Route::view('/user', 'user.index')->name('user.index');
     Route::view('/booking', 'user.hotel_booking')->name('user.hotel_booking');
-   
+    Route::post('/hotelbooking', [UserController::class,'booking'])->name('user.hotelbooking');
     Route::view('/flightoneway', 'user.flight_one_way')->name('user.flight_one_way');
     Route::post('/flightonewaybooking', [UserController::class,'flight_one_way'])->name('user.flight_one_way_booking');
     Route::view('/flighttwoway', 'user.flight_two_way')->name('user.flight_two_way');
@@ -38,7 +38,7 @@ Route::group(['prefix' => 'user'], function () {
 
 });
 
-Route::post('/hotelbooking', [UserController::class,'booking'])->name('user.hotelbooking');
+
 
 Auth::routes();
 

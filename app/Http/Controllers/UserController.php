@@ -19,32 +19,29 @@ class UserController extends Controller
 
       public function booking(Request $request){
 
-    return response()->json([
-            'message'=>'created Successfully'
-        ]);
+ 
         // dd($request);
-        // $data=new Booking();
-        // $data->user_id=Auth()->user()->id;
-        // $data->category=$request->category;
-        // $data->departure_date=$request->departure;
-        // $data->arrival_date=$request->arrival;
-        // $data->kids=$request->kids;
-        // $data->status=1;
-        // $data->adults=$request->adults;
-        // $data->rooms=$request->rooms;
-        // if($data->save())
-        // {
-        //     return "saved";
-        // }
-        // else
-        // {
-        //     return "error";
-        // }
+        $data=new Booking();
+        $data->user_id=Auth()->user()->id;
+        $data->category=$request->category;
+        $data->departure_date=$request->departure;
+        $data->arrival_date=$request->arrival;
+        $data->kids=$request->kids;
+        $data->status=1;
+        $data->adults=$request->adults;
+        $data->rooms=$request->rooms;
+        if($data->save())
+        {
+            return "saved";
+        }
+        else
+        {
+            return "error";
+        }
    
-        // return ["data"=>"data has been saved "];
+    
    
-return "yes";
-     
+
       }
 
       public function flight_one_way(Request $request){
@@ -74,7 +71,7 @@ return "yes";
         $data->from_city=$request->from_city;
         $data->to_city=$request->to_city;
         $data->departure_date=$request->departure;
-        $data->departure_date=$request->departure;
+        $data->departure_date=$request->arrival;
         $data->kids=$request->kids;
         $data->adults=$request->adults;
         $data->seniors=$request->seniors;

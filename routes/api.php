@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,11 @@ use app\Http\Controllers\UserController;
 
 // });
 
- Route::post('/hotelbooking', [UserController::class,'booking']);
- Route::get('/test', [app\Http\Controllers\UserController::class,'test']);
+ Route::post('/hotelbooking', [ApiController::class,'booking']);
+Route::post('/flightonewaybooking', [ApiController::class,'flight_one_way']);
+Route::post('/flighttwowaybooking', [ApiController::class,'flight_two_way']);
+Route::post('/airport', [ApiController::class,'airport']);
+Route::post('/covidtest', [ApiController::class,'covid_test']);
+Route::post('/riviews', [ApiController::class,'riviews']);
 
- Route::get('/check', function () {
-    return response()->json([
-            'message'=>'created Successfully'
-        ]);
-});
+
