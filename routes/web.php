@@ -17,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 // ================================= Admin  Routes =========================
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/admin', function () {
+
+    Route::get('/bookingdetails', [App\Http\Controllers\AdminController::class, 'hotel_booking_details'])->name('admin.bookingdetails');
+
+
+    Route::get('/admindashboard', function () {
         return view('admin.index');
     });
     Route::get('/add_hotels', function () {

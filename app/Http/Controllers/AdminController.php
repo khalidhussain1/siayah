@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -243,4 +244,12 @@ public function statuschnage($id){
          return redirect()->back()->with('success','Withdraw Approved Successfully ');
   
 }
+
+public function hotel_booking_details(){
+$data=Booking::all();
+
+return view('admin.booking_details')->with('data',$data);
+}
+
+
 }
