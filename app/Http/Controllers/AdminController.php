@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Project;
 use App\Models\ProjectDetail;
 use App\Models\ProjectMedia;
+use App\Models\FlightOneWayBooking;
+use App\Models\FlightTwoWayBooking;
+
 use App\Models\Update;
 use App\Notifications\RegisteraccountlNotification;
 use Illuminate\Support\Facades\Mail;
@@ -102,71 +105,11 @@ class AdminController extends Controller
         return view('Admin.chat-option');
     }
 
-    public function project_detail(Request $request)
-    {
 
-        // dd($request);
-        $data = new ProjectDetail();
+
   
-        if ($request->hasFile('sample')) {
 
-            $file = $request->file('sample');
-            $extension = $request->sample->extension();
-            $fileName = time() . "_." . $extension;
-            $request->sample->move('upload/projectimages/', $fileName);
-            $data->sample = $fileName;
-        }
 
-        if ($request->hasFile('color')) {
-
-            $file2 = $request->file('color');
-            $extension2 = $request->color->extension();
-            $fileName2 = time() . "2_." . $extension2;
-            $request->color->move('upload/projectimages/', $fileName2);
-            $data->color = $fileName2;
-        }
-
-  $data->title = $request->title;
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->phone = $request->phone;
-        $data->industry = $request->industry;
-        $data->intrested = "Paypal";
-        if($request->title=="Logo Design")
-        {
-            $budget=300;
-        }
-        else
-        {
-            $budget=400; 
-        }
-        $data->budget = $budget;
-        $data->date = $request->date;
-        $data->recomendation    = $request->recomendation;
-        $data->description = $request->description;
-        $data->save();
-
-        //Paypal integration page here 
-        // return view('auth.register');
-        return redirect('/payment');
-    }
-
-    public function reports(Request $request)
-    {
-       
-        $data=new Update();
-        $data->assign_by=$request->assign_by;
-        $data->project_id=$request->project_id;
-        $data->description=$request->description;
-        $data->save();
-        return redirect()->back()->with('success','Updated to Admin Successfully ');
-      
-    }
-
-    public function updates(){
-        $data=Update::get();
-     return view('Admin.updates')->with('data',$data);
-    }
 public function payroll(){
 
     $data=Project::all();
@@ -247,9 +190,18 @@ public function statuschnage($id){
 
 public function hotel_booking_details(){
 $data=Booking::all();
-
 return view('admin.booking_details')->with('data',$data);
 }
+public function onewaybooking(){
+    $data=FlightOneWayBooking::all();
+    $data2=FlightTwoWayBooking::all();
+return view('admin.flight_one_way_booking')->with('data',$data)->with('data2',$data2);
+// return "working";
+}
 
+public function add_hotels(){
+    // return "test";
+    return view('admin.add_hotels');
+}
 
 }

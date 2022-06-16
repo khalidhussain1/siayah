@@ -1,6 +1,6 @@
-@extends('admin.layout.main')
-@section('content')
-<!-- @include('admin.includes.statistics') -->
+
+<?php $__env->startSection('content'); ?>
+<!-- <?php echo $__env->make('admin.includes.statistics', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> -->
 
 <!-- <div class="card">
     <div class="card-header p-3 pt-2">
@@ -100,4 +100,5 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH H:\xampp\htdocs\siayah\resources\views/admin/add_hotels.blade.php ENDPATH**/ ?>
