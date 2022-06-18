@@ -36,7 +36,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-         <span>Appartment Management</span>
+         <span class="">Appartment Management</span>
           </a>
         </li>
         <li class="nav-item">
@@ -48,19 +48,19 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./pages/tables.html">
+          <a class="nav-link text-white " href="<?php echo e(url('admin/add_hotels')); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Drivers </span>
+            <span class="nav-link-text ms-1">Hotels </span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./pages/tables.html">
+          <a class="nav-link text-white " href="<?php echo e(url('admin/packages')); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Tours (Packages) </span>
+            <span class="nav-link-text ms-1">Packages</span>
           </a>
         </li>
         <li class="nav-item">

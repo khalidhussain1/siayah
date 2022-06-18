@@ -20,13 +20,18 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/bookingdetails', [App\Http\Controllers\AdminController::class, 'hotel_booking_details'])->name('admin.bookingdetails');
     Route::get('/onewaybookingdetails', [App\Http\Controllers\AdminController::class, 'onewaybooking'])->name('admin.onewaybooking');
+    Route::post('/hotelsubmission', [App\Http\Controllers\AdminController::class, 'hotelsubmission'])->name('admin.hotelsubmission');
+    Route::post('/packagesubmission', [App\Http\Controllers\AdminController::class, 'packagesubmission'])->name('admin.packagesubmission');
+    // Route::get('/admindashboard', function () {
+    //     return view('admin.index');
+    // })->name('admin.admindashboard');
+    Route::view('/admindashboard', 'admin.index')->name('admin.index');
 
-
-    Route::get('/admindashboard', function () {
-        return view('admin.index');
-    });
     Route::get('/add_hotels', function () {
         return view('admin.add_hotels');
+    });
+    Route::get('/packages', function () {
+        return view('admin.packages');
     });
 });
 // ================================= User  Routes =========================

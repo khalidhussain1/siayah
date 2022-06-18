@@ -14,7 +14,8 @@ use App\Models\ProjectDetail;
 use App\Models\ProjectMedia;
 use App\Models\FlightOneWayBooking;
 use App\Models\FlightTwoWayBooking;
-
+use App\Models\Hotel;
+use App\Models\Package;
 use App\Models\Update;
 use App\Notifications\RegisteraccountlNotification;
 use Illuminate\Support\Facades\Mail;
@@ -199,9 +200,25 @@ return view('admin.flight_one_way_booking')->with('data',$data)->with('data2',$d
 // return "working";
 }
 
-public function add_hotels(){
-    // return "test";
-    return view('admin.add_hotels');
+public function hotelsubmission(Request $request){
+  $data=new Hotel();
+  $data->name=$request->name;
+  $data->address=$request->address;
+  $data->price=$request->price;
+  $data->images= json_encode($request->images); 
+   $data->status=$request->status;
+  $data->save();
+  return redirect()->back();
+    // return view('admin.add_hotels');
 }
-
+public function packagesubmission(Request $request){
+$data= new Package();
+$data->name=$request->name;
+$data->type=$request->type;
+$data->perks=$request->perks;
+$data->days=$request->days;
+$data->images=json_encode($request->name);
+$data->save();
+return redirect()->back();
+}
 }
