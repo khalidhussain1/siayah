@@ -22,9 +22,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/onewaybookingdetails', [App\Http\Controllers\AdminController::class, 'onewaybooking'])->name('admin.onewaybooking');
     Route::post('/hotelsubmission', [App\Http\Controllers\AdminController::class, 'hotelsubmission'])->name('admin.hotelsubmission');
     Route::post('/packagesubmission', [App\Http\Controllers\AdminController::class, 'packagesubmission'])->name('admin.packagesubmission');
-    // Route::get('/admindashboard', function () {
-    //     return view('admin.index');
-    // })->name('admin.admindashboard');
+    Route::get('/hotels', [App\Http\Controllers\AdminController::class, 'hotels'])->name('admin.hotels');
+    Route::get('/pp', [App\Http\Controllers\AdminController::class, 'p'])->name('admin.ppp');
+
     Route::view('/admindashboard', 'admin.index')->name('admin.index');
 
     Route::get('/add_hotels', function () {
@@ -33,6 +33,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/packages', function () {
         return view('admin.packages');
     });
+
+
+    
 });
 // ================================= User  Routes =========================
 Route::group(['prefix' => 'user'], function () {

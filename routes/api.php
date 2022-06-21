@@ -31,3 +31,5 @@ Route::post('/covidtest', [ApiController::class, 'covid_test']);
 Route::post('/riviews', [ApiController::class, 'riviews']);
 Route::post('/register', [ApiController::class, 'register']);
 Route::post('/login', [ApiController::class, 'login']);
+Route::get('/packakges', [ApiController::class, 'get_packages']);
+Route::get('/hotels', [ApiController::class, 'get_hotels']);

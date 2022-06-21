@@ -211,6 +211,22 @@ public function hotelsubmission(Request $request){
   return redirect()->back();
     // return view('admin.add_hotels');
 }
+
+
+public function hotels(Request $request){
+    $data=Hotel::all();
+      return view('admin.hotels')->with('data',$data);
+  }
+
+
+
+
+  public function p(){
+    $data=Package::all();
+    // dd($data);
+      return view('admin.packagesview')->with('data',$data);
+  }
+
 public function packagesubmission(Request $request){
 $data= new Package();
 $data->name=$request->name;

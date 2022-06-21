@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\Package;
+use App\Models\Hotel;
 use App\Models\FlightOneWayBooking;
 use App\Models\FlightTwoWayBooking;
 use App\Models\Airport;
@@ -236,4 +238,29 @@ class ApiController extends Controller
         //         ->toDateTimeString(),
         // ]);
     }
+
+
+    public function get_packages(Request $request)
+    {
+
+        $data=Package::All();
+            return response()->json([
+                'status' => '200',
+                'data'    => $data
+            ]);
+        
+    }
+
+
+   public function get_hotels(){
+    $data=Hotel::All();
+    return response()->json([
+        'status' => '200',
+        'data'    => $data
+    ]);
+   }
+
+
+
+
 }
