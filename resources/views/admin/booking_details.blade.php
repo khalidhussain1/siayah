@@ -5,49 +5,140 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" /> -->
 <section>
 
-    <div class="container mt-5 bg-white">
-        <h2>Hotel Bookings </h2>
+<div class="container mt-5 bg-white">
+        <!-- <h2>Hotel Details  </h2> -->
         <table id="example" class="table table-striped table-bordered" style="width:100%">
-            <thead>
-                <tr>
-                <th>ID</th>
-                    <th>Customer</th>
-                    <th>Category</th>
-                    <th>Departure</th>
-                    <th>Arrival</th>
-                    <th>Kids</th>
-                    <th>Adults</th>
-                    <th>Rooms</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($data as $item)
-                <tr>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->customer->name}}</td>
-                    <td>{{$item->category}}</td>
-                    <td>{{$item->departure_date}}</td>
-                    <td>{{$item->arrival_date}}</td>
-                    <td>{{$item->kids}}</td>
-                    <td>{{$item->adults}}</td>
-                    <td>{{$item->rooms}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-            <tfoot>
-                <tr>
-                <th>ID</th>
-                    <th>Customer</th>
-                    <th>Category</th>
-                    <th>Departure</th>
-                    <th>Arrival</th>
-                    <th>Kids</th>
-                    <th>Adults</th>
-                    <th>Rooms</th>
-                </tr>
-            </tfoot>
-        </table>
+        <div class="d-flex justify-content-between space-between " >
+       <h3 style="margin-top:10px">Hotel bookings    </h3>
+        <!-- <button class="btn btn-success" style="margin-top:10px"><a href="{{url('admin/add_hotels')}}" style="color:white;text-decoration none">Add New Hotel </a></button> -->
+       </div>
+    
+       <div class="row">
+          <div class="col-lg-8 col-md-6 mb-md-0">
+           
+              <div class="card-body px-0 pb-2">
+                <div class="table-responsive">
+                
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr style="text-align: left;">
+                        <th class="text-uppercase text-secondary text-xxs
+                          font-weight-bolder opacity-7" style="color:black !important">ID</th>
+                        <th class="text-uppercase text-secondary text-xxs
+                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Customer  </th>
+                          <th class="text-uppercase text-secondary text-xxs
+                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Category  </th>
+                          <th class="text-uppercase text-secondary text-xxs
+                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Departure  </th>
+                          <th class="text-uppercase text-secondary text-xxs
+                          font-weight-bolder opacity-7 ps-2"style="color:black !important">Arrival </th>
+                          <th class="text-uppercase text-secondary text-xxs
+                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Kids  </th>
+                          <th class="text-uppercase text-secondary text-xxs
+                          font-weight-bolder opacity-7 ps-2"style="color:black !important">Adults</th>
+                          <th class="text-uppercase text-secondary text-xxs
+                          font-weight-bolder opacity-7 ps-2"style="color:black !important">Rooms</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($data as $item)
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+                              <p class="mb-0 text-sm" style="color:#7a7878b5" >{{$item->id}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+                              <p class="mb-0 text-sm">{{$item->customer->name}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+                              <p class="mb-0 text-sm">{{$item->category}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+                              <p class="mb-0 text-sm">{{$item->departure_date}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+                              <p class="mb-0 text-sm">{{$item->arrival_date}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+                              <p class="mb-0 text-sm">{{$item->kids}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+                              <p class="mb-0 text-sm">{{$item->adults}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+                              <p class="mb-0 text-sm">{{$item->rooms}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+          <div class="">
+          
+          </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      
+                 @endforeach
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+
+
+
+
+        
     </div>
+
+
+
+
+
 
 </section>
 

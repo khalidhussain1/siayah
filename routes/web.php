@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 // ================================= Admin  Routes =========================
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware' => ['auth:web']], function () {
 
     Route::get('/bookingdetails', [App\Http\Controllers\AdminController::class, 'hotel_booking_details'])->name('admin.bookingdetails');
     Route::get('/onewaybookingdetails', [App\Http\Controllers\AdminController::class, 'onewaybooking'])->name('admin.onewaybooking');
