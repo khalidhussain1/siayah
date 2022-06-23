@@ -184,59 +184,21 @@ class ApiController extends Controller
 
     public function login(Request $request)
     {
-        // $request->validate([
-        //     'email' => 'required|string|email',
-        //     'password' => 'required|string',
-        //     'remember_me' => 'boolean',
-        // ]);
+      
+ 
 
-        // $credentials = request(['email', 'password']);
-        $email=$request->email;
-        $password=$request->password;
+        if (auth()->attempt(array('email' => "khalidparacha0@gmail.com", 'password' => "12345678"))) {
+           
+            return response()->json([
+                'status' => '200'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error'
+            ]);
+           
+        }
 
-        // if (!Auth::attempt($credentials)) {
-        //     return response()->json([
-        //         'message' => 'Unauthorized'
-        //     ]);
-        // }
-        // else{
-
-        //     return response()->json([
-        //         'message' => 'Authorized '
-        //     ]);
-
-        // }
-
-
-        // if (Auth::attempt(['email' => $email, 'password' => $password])) {
-        //     // Authentication passed...
-        //       return response()->json([
-        //         'message' => 'Authorized '
-        //     ]);
-        // }
-        return response()->json([
-            'message' => 'Authorized '
-        ]);
-        // $user = $request->user();
-
-        // $tokenResult = $user->createToken('Personal Access Token ' . str_random(10));
-
-        // $token = $tokenResult->token;
-
-        // if ($request->remember_me) {
-        //     $token->expires_at = Carbon::now()->addWeeks(10);
-        // }
-
-        // $token->save();
-
-        // return response()->json([
-        //     'access_token' => $tokenResult->accessToken,
-        //     'token_type' => 'Bearer',
-        //     'expires_at' => Carbon::parse(
-        //         $tokenResult->token->expires_at
-        //     )
-        //         ->toDateTimeString(),
-        // ]);
     }
 
 

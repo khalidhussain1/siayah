@@ -59,11 +59,11 @@
                         <div class="form-row">
                             <div class="col">
                                 <lable>Psckage Name </lable>
-                                <input type="text" class="form-control custom-border" placeholder=" Name " name="name">
+                                <input type="text" class="form-control custom-border" placeholder=" Name " name="name" required>
                             </div>
                             <div class="col">
                                 <lable>Hotel Type</lable>
-                                <select class="custom-select" style="border-top:none;border-left:none" name="type">
+                                <select class="custom-select" style="border-top:none;border-left:none" name="type" required>
                                     <option selected>Select Type  </option>
                                     <option value="Five Star">Five Star   </option>
                                     <option value="Four Star">Four Star   </option>
@@ -76,7 +76,7 @@
                          
                             <div class="col">
                                 <lable>Perks  </lable>
-                                <select class="custom-select" style="border-top:none;border-left:none" name="perks">
+                                <select class="custom-select" style="border-top:none;border-left:none" name="perks" required>
                                     <option selected>Select Perk  </option>
                                     <option value="Lunch + Break Fast">Lunch + Break Fast  </option>
                            
@@ -85,7 +85,7 @@
                             </div>
                             <div class="col-md-6">
                                 <lable>Days  </lable>
-                                <select class="custom-select" style="border-top:none;border-left:none" name="days">
+                                <select class="custom-select" style="border-top:none;border-left:none" name="days" required>
                                     <option selected>Select Days </option>
                                     <option value="1">1 </option>
                                     <option value="2">2 </option>
@@ -101,7 +101,7 @@
                         
                           <div class="col-md-6">
                                 <lable>Images  </lable>
-                                <input type="file" class="form-control" id="customFile" name="images[]" multiple />
+                                <input type="file" class="form-control" id="customFile" name="images[]" multiple required/>
                             </div>
                         </div>
                         <div class="mt-3">

@@ -9,7 +9,7 @@
         <!-- <h2>Hotel Details  </h2> -->
         <table id="example" class="table table-striped table-bordered" style="width:100%">
         <div class="d-flex justify-content-between space-between " >
-       <h3 style="margin-top:10px">Hotel Details </h3>
+       <h3 style="margin-top:10px">Package Details </h3>
        <button class="btn btn-success" style="margin-top:10px"><a href="{{url('admin/packages')}}" style="color:white;text-decoration none;">Add New Package </a></button>
        </div>
     
@@ -88,13 +88,16 @@
     margin: 0px;
     height: 20px;
     width: 52px;
-    font-size: 12px;">Edit</button>
+    font-size: 12px;" data-toggle="modal" data-target="#exampleModal"><a href="{{ route('admin.update', ['id'=>$item->id]) }}" style="color:white;text-decoration:none">Edit</a></button>
          <button class="btn btn-danger" style="    padding: 0px;
     margin: 0px;
     height: 20px;
     width: 52px;
-    font-size: 12px;">Delete</button>
+    font-size: 12px;"><a href="{{ route('admin.delete', ['id'=>$item->id]) }}" style="color:white;text-decoration:none">Delete</a></button>
           </div>
+
+
+
                             </div>
                           </div>
                         </td>
@@ -117,6 +120,7 @@
     </div>
 
 </section>
+
 
 
 <script>

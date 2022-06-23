@@ -24,8 +24,13 @@ Route::group(['prefix' => 'admin','middleware' => ['auth:web']], function () {
     Route::post('/packagesubmission', [App\Http\Controllers\AdminController::class, 'packagesubmission'])->name('admin.packagesubmission');
     Route::get('/hotels', [App\Http\Controllers\AdminController::class, 'hotels'])->name('admin.hotels');
     Route::get('/pp', [App\Http\Controllers\AdminController::class, 'p'])->name('admin.ppp');
-
+    Route::get('/updatepackage/{id}', [App\Http\Controllers\AdminController::class, 'update_package'])->name('admin.update');
+    Route::post('/updatepackagesubmission', [App\Http\Controllers\AdminController::class, 'update_package_submission'])->name('admin.updatepackage');
+    Route::get('/updatehotel/{id}', [App\Http\Controllers\AdminController::class, 'update_hotel'])->name('admin.updatehotel');
+    Route::post('/updatehotelsubmission', [App\Http\Controllers\AdminController::class, 'update_hotel_submission'])->name('admin.updatehotelsubmission');
+    Route::get('/deletepackage/{id}', [App\Http\Controllers\AdminController::class, 'deletepackage'])->name('admin.delete');
     Route::view('/admindashboard', 'admin.index')->name('admin.index');
+    Route::get('/deletehotel/{id}', [App\Http\Controllers\AdminController::class, 'deletehotel'])->name('admin.deletehotel');
 
     Route::get('/add_hotels', function () {
         return view('admin.add_hotels');

@@ -22,6 +22,7 @@
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <?php echo $__env->make('admin.layout.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('sweetalert::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
     
@@ -37,7 +38,7 @@
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3">
         <div class="float-start">
-          <h5 class="mt-3 mb-0">Material UI Configurator</h5>
+          <h5 class="mt-3 mb-0">Siayah dashboard</h5>
           <p>See our dashboard options.</p>
         </div>
         <div class="float-end mt-4">
@@ -359,6 +360,9 @@
       },
     });
   </script>
+
+
+
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

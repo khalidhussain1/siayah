@@ -59,22 +59,22 @@
                         <div class="form-row">
                             <div class="col">
                                 <lable>Hotel Name</lable>
-                                <input type="text" class="form-control custom-border" placeholder=" Name " name="name">
+                                <input type="text" class="form-control custom-border" placeholder=" Name " name="name" required>
                             </div>
                             <div class="col">
                                 <lable>Hotel Location</lable>
-                                <input type="text" class="form-control custom-border" placeholder="Location " name="address">
+                                <input type="text" class="form-control custom-border" placeholder="Location " name="address" required>
                             </div>
                         </div>
                         <div class="form-row mt-3">
                          
                             <div class="col">
                                 <lable>Price Range </lable>
-                                <input type="text" class="form-control custom-border" placeholder="Price" name="price">
+                                <input type="text" class="form-control custom-border" placeholder="Price" name="price" required>
                             </div>
                             <div class="col-md-6">
                                 <lable>Status </lable>
-                                <select class="custom-select" style="border-top:none;border-left:none" name="status">
+                                <select class="custom-select" style="border-top:none;border-left:none" name="status" required>
                                     <option selected>Select Status </option>
                                     <option value="1">Active </option>
                                     <option value="2">Disable </option>
@@ -86,7 +86,7 @@
                         
                           <div class="col-md-6">
                                 <lable>Images  </lable>
-                                <input type="file" class="form-control" id="customFile" name="images[]" multiple />
+                                <input type="file" class="form-control" id="customFile" name="images[]" multiple required/>
                             </div>
                         </div>
                         <div class="mt-3">

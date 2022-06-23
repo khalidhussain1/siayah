@@ -35,7 +35,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach($data as $item)
+                     @foreach($data as $item)
                       <tr>
                         <td>
                           <div class="d-flex px-2 py-1">
@@ -78,12 +78,12 @@
     margin: 0px;
     height: 20px;
     width: 52px;
-    font-size: 12px;">Edit</button>
+    font-size: 12px;"><a href="{{ route('admin.updatehotel', ['id'=>$item->id]) }}" style="color:white;text-decoration:none">Edit</a></button>
          <button class="btn btn-danger" style="    padding: 0px;
     margin: 0px;
     height: 20px;
     width: 52px;
-    font-size: 12px;">Delete</button>
+    font-size: 12px;"><a href="{{ route('admin.deletehotel', ['id'=>$item->id]) }}" style="color:white;text-decoration:none">Delete</a></button>
           </div>
                             </div>
                           </div>

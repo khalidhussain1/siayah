@@ -20,7 +20,7 @@ use App\Models\Update;
 use App\Notifications\RegisteraccountlNotification;
 use Illuminate\Support\Facades\Mail;
 use App\Models\PaymentRequest;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
     public function  create_user(Request $request)
@@ -208,6 +208,7 @@ public function hotelsubmission(Request $request){
   $data->images= json_encode($request->images); 
    $data->status=$request->status;
   $data->save();
+  Alert::success('Congrats', 'Hotel Added Successfuly ');
   return redirect()->back();
     // return view('admin.add_hotels');
 }
@@ -235,6 +236,55 @@ $data->perks=$request->perks;
 $data->days=$request->days;
 $data->images=json_encode($request->name);
 $data->save();
+Alert::success('Congrats', 'Package Added Succefuly  ');
 return redirect()->back();
 }
+
+public function update_package($id){
+   $data=Package::find($id)->first();
+
+   return view('admin.update_packages')->with('data',$data);
+}
+
+public function update_package_submission(Request $request){
+$data=Package::find($request->id);
+$data->name=$request->name;
+$data->type=$request->type;
+$data->perks=$request->perks;
+$data->days=$request->days;
+$data->save();
+Alert::success('Congrats', 'Package updated Successfuly ');
+return redirect()->back();
+}
+public function deletepackage($id){
+  $data=Package::find($id)->delete();
+  Alert::success('Congrats', 'Package Deleted  Successfuly ');
+  return redirect()->back();
+}
+
+
+public function deletehotel($id){
+    $data=Hotel::find($id)->delete();
+    Alert::success('Congrats', 'Hotel deleted Successfuly ');
+    return redirect()->back();
+  }
+
+public function update_hotel($id){
+    $data=Hotel::find($id)->first();
+
+    return view('admin.update_hotels')->with('data',$data);
+
+}
+  public function update_hotel_submission(Request $request){
+    $data=Hotel::find($request->id);
+    $data->name=$request->name;
+    $data->address=$request->address;
+    $data->price=$request->price;
+     $data->status=$request->status;
+    $data->save();
+    Alert::success('Congrats', 'Hotel Updated  Successfuly ');
+    return redirect()->back();
+
+  }
+
 }
