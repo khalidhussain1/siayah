@@ -4,7 +4,19 @@ use App\Models\ProjectDetail;
 use App\Models\ProjectMedia;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Booking;
 use Illuminate\Support\Facades\DB;
+
+
+// ================================ Total Bookings  ===================================
+function total_bookings()
+{
+    $data = Booking::get();
+    return count($data);
+}
+
+
+
 // ================================ New Accounts ===================================
 function new_accounts()
 {

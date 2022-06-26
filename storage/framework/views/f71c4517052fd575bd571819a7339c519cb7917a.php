@@ -36,7 +36,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-         <span class="">Appartment Management</span>
+         <span class=""> Booking Managemnt </span>
           </a>
         </li>
         <li class="nav-item">
@@ -44,7 +44,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Bookings </span>
+            <span class="nav-link-text ms-1">Hotel Bookings </span>
           </a>
         </li>
         <li class="nav-item">
@@ -55,12 +55,30 @@
             <span class="nav-link-text ms-1">Hotels </span>
           </a>
         </li>
+
+        
         <li class="nav-item">
           <a class="nav-link text-white <?php echo e((request()->is('admin/pp*')) ? 'active' : ''); ?>" href="<?php echo e(url('admin/pp')); ?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">view_in_ar</i>
             </div>
             <span class="nav-link-text ms-1">Packages</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white <?php echo e((request()->is('admin/payments*')) ? 'active' : ''); ?>" href="<?php echo e(url('admin/payments')); ?>">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">view_in_ar</i>
+            </div>
+            <span class="nav-link-text ms-1">Payments</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white <?php echo e((request()->is('admin/covid*')) ? 'active' : ''); ?> " href="<?php echo e(url('admin/covid')); ?>">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="material-icons opacity-10">receipt_long</i>
+            </div>
+            <span class="nav-link-text ms-1">COVID_19 </span>
           </a>
         </li>
         <!-- <li class="nav-item">

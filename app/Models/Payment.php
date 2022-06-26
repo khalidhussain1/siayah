@@ -9,12 +9,9 @@ class Payment extends Model
 {
     use HasFactory;
 
-    public function client()
+    public function customer()
     {
-        return $this->belongsTo('App\Models\User', 'client_id', 'id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
-    public function project()
-    {
-        return $this->belongsTo('App\Models\ProjectDetail', 'project_id', 'id');
-    }
+
 }

@@ -25,11 +25,14 @@ class ApiController extends Controller
     public function booking(Request $request)
     {
         $data = new Booking();
-        $data->user_id = 1;
+        $data->user_id = $request->user_id;
+        $data->package_id = $request->package_id;
         $data->category = $request->category;
         $data->departure_date = $request->departure;
         $data->arrival_date = $request->arrival;
         $data->kids = $request->kids;
+        $data->kids = $request->days;
+        $data->total_amount = $request->total_amount;
         $data->status = 1;
         $data->adults = $request->adults;
         $data->rooms = $request->rooms;
@@ -56,7 +59,7 @@ class ApiController extends Controller
         $data->to_city = $request->to_city;
         $data->departure_date = $request->departure;
         $data->kids = $request->kids;
-        $data->adults = $request->adults;
+        $data->adults = $request->adults;   
         $data->seniors = $request->seniors;
         $data->status = 1;
         if ($data->save()) {
@@ -122,12 +125,11 @@ class ApiController extends Controller
     {
         $data = new covidtest();
         $data->user_id = 1;
-        $data->date = $request->date;
-        $data->selectno = $request->selectno;
-        $data->name = $request->name;
+        $data->username = $request->username;
+        $data->national_id = $request->national_id;
         $data->dob = $request->dob;
-        $data->number = $request->number;
-
+        $data->no_of_doses = $request->no_of_doses;
+        $data->covid_certificate_id = $request->covid_certificate_id;
         if ($data->save()) {
             return response()->json([
                 'message' => 'Data Created '

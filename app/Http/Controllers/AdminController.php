@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Models\Project;
 use App\Models\ProjectDetail;
+use App\Models\Payment;
 use App\Models\ProjectMedia;
 use App\Models\FlightOneWayBooking;
 use App\Models\FlightTwoWayBooking;
@@ -20,6 +21,7 @@ use App\Models\Update;
 use App\Notifications\RegisteraccountlNotification;
 use Illuminate\Support\Facades\Mail;
 use App\Models\PaymentRequest;
+use App\Models\Covidtest;
 use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
@@ -286,5 +288,23 @@ public function update_hotel($id){
     return redirect()->back();
 
   }
+
+public function covid_details(){
+    $data=Covidtest::all();
+
+   return view('admin.coviddetailpage')->with('data',$data);
+}
+
+public function payments(){
+    $data=Payment::all();
+   return view('admin.payments')->with('data',$data);
+}
+
+public function history(){
+
+    return "history tab is in progress... ";
+}
+
+
 
 }

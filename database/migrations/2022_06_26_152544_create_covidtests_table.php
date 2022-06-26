@@ -16,11 +16,11 @@ class CreateCovidtestsTable extends Migration
         Schema::create('covidtests', function (Blueprint $table) {
             $table->id();
             $table->text('user_id')->nullable();
-            $table->text('date')->nullable();
-            $table->text('selectno')->nullable();
-            $table->text('name')->nullable();
+            $table->text('username')->nullable();
+            $table->text('national_id')->nullable();
             $table->text('dob')->nullable();
-            $table->text('number')->nullable();
+            $table->text('no_of_doses')->nullable();
+            $table->text('covid_certificate_id')->nullable();
             $table->timestamps();
         });
     }
