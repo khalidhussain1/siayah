@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth:web']], function () {
     Route::get('/deletepackage/{id}', [App\Http\Controllers\AdminController::class, 'deletepackage'])->name('admin.delete');
     Route::view('/admindashboard', 'admin.index')->name('admin.index');
     Route::get('/deletehotel/{id}', [App\Http\Controllers\AdminController::class, 'deletehotel'])->name('admin.deletehotel');
+    Route::get('/viewhotel/{id}', [App\Http\Controllers\AdminController::class, 'viewhotel'])->name('admin.viewhotel');
     Route::get('/covid', [App\Http\Controllers\AdminController::class, 'covid_details'])->name('admin.covid_details');
     Route::get('/payments', [App\Http\Controllers\AdminController::class, 'payments'])->name('admin.payments');
     Route::get('/history', [App\Http\Controllers\AdminController::class, 'history'])->name('admin.history');

@@ -54,27 +54,27 @@
             <div class="card-body pt-4 p-3">
                 <ul class="list-group">
                     <!-- <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg" style="height:400px"> -->
-                    <form class="form-control" method="post" action="{{route('admin.hotelsubmission')}}">
+                    <form class="form-control" enctype="multipart/form-data" method="post" action="{{route('admin.hotelsubmission')}}">
                         @csrf
                         <div class="form-row">
                             <div class="col">
                                 <lable>Hotel Name</lable>
-                                <input type="text" class="form-control custom-border" placeholder=" Name " name="name" required>
+                                <input type="text" class="form-control custom-border" placeholder=" Name " name="name" >
                             </div>
                             <div class="col">
                                 <lable>Hotel Location</lable>
-                                <input type="text" class="form-control custom-border" placeholder="Location " name="address" required>
+                                <input type="text" class="form-control custom-border" placeholder="Location " name="address" >
                             </div>
                         </div>
                         <div class="form-row mt-3">
                          
                             <div class="col">
                                 <lable>Price Range </lable>
-                                <input type="text" class="form-control custom-border" placeholder="Price" name="price" required>
+                                <input type="text" class="form-control custom-border" placeholder="Price" name="price" >
                             </div>
                             <div class="col-md-6">
                                 <lable>Status </lable>
-                                <select class="custom-select" style="border-top:none;border-left:none" name="status" required>
+                                <select class="custom-select" style="border-top:none;border-left:none" name="status" >
                                     <option selected>Select Status </option>
                                     <option value="1">Active </option>
                                     <option value="2">Disable </option>
@@ -86,7 +86,7 @@
                         
                           <div class="col-md-6">
                                 <lable>Images  </lable>
-                                <input type="file" class="form-control" id="customFile" name="images[]" multiple required/>
+                                <input type="file" class="form-control" id="customFile" name="images[]" multiple />
                             </div>
                         </div>
                         <div class="mt-3">

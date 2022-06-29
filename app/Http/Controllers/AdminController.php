@@ -22,6 +22,7 @@ use App\Notifications\RegisteraccountlNotification;
 use Illuminate\Support\Facades\Mail;
 use App\Models\PaymentRequest;
 use App\Models\Covidtest;
+use App\Models\HotelImage;
 use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
@@ -207,9 +208,27 @@ public function hotelsubmission(Request $request){
   $data->name=$request->name;
   $data->address=$request->address;
   $data->price=$request->price;
-  $data->images= json_encode($request->images); 
    $data->status=$request->status;
   $data->save();
+  $record=Hotel::latest()->first();
+ 
+    $files=$request->file('images');
+
+ 
+    if ($request->hasFile('images')) {
+    foreach($files as $file) {
+        $imagesmodel=new HotelImage();
+    $extension=$file->extension();
+    $fileName=rand(1,100)."_.".$extension;
+    $file->move('img/bookingimages',$fileName);
+    $imagesmodel->hotel_id=$record->id;
+     $imagesmodel->image=$fileName;
+     $imagesmodel->save();
+    }   
+// }
+    }
+
+
   Alert::success('Congrats', 'Hotel Added Successfuly ');
   return redirect()->back();
     // return view('admin.add_hotels');
@@ -305,6 +324,14 @@ public function history(){
     return "history tab is in progress... ";
 }
 
+public function viewhotel($id){
+ 
+$data=HotelImage::where('hotel_id',$id)->get();
 
+
+return view('admin.hotelimages')->with('data',$data);
+
+
+}
 
 }

@@ -84,6 +84,11 @@
     height: 20px;
     width: 52px;
     font-size: 12px;"><a href="{{ route('admin.deletehotel', ['id'=>$item->id]) }}" style="color:white;text-decoration:none">Delete</a></button>
+             <button class="btn btn-primary" style="    padding: 0px;
+    margin: 0px;
+    height: 20px;
+    width: 52px;
+    font-size: 12px;"><a href="{{ route('admin.viewhotel', ['id'=>$item->id]) }}" style="color:white;text-decoration:none">View</a></button>
           </div>
                             </div>
                           </div>
