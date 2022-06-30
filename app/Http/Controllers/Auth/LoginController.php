@@ -50,10 +50,10 @@ class LoginController extends Controller
        
     
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-            if (auth()->user()->role == 'admin' || auth()->user()->role == 'projectmanager' || auth()->user()->role == 'owner' ) {
+            // if (auth()->user()->role == 'admin' || auth()->user()->role == 'projectmanager' || auth()->user()->role == 'owner' ) {
                
                 return redirect()->route('admin.index');
-            } 
+            // } 
             
         } else {
             Auth::logout();

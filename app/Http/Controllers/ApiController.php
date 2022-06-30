@@ -183,26 +183,22 @@ class ApiController extends Controller
     }
 
 
+function login(Request $request){
 
-    public function login(Request $request)
-    {
-      
- 
 
-        if (auth()->attempt(array('email' => "khalidparacha0@gmail.com", 'password' => "12345678"))) {
-           
-            return response()->json([
-                'status' => '200'
-            ]);
-        } else {
-            return response()->json([
-                'status' => 'error'
-            ]);
-           
-        }
-
+    $user = User::where('email',$request->email)->first();
+    if(!$user){
+        return response()->json(['error' => 'user not found.'], 401);
     }
-
+    
+    if (!Hash::check($request->password,$user->password)) {
+        return response()->json(['error' => 'Unauthorised'], 401);
+    } else {
+        auth()->login($user);
+        $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
+        return response()->json(['token' => $token], 200);
+    }
+}
 
     public function get_packages(Request $request)
     {
