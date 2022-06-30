@@ -25,13 +25,13 @@
                         <th class="text-uppercase text-secondary text-xxs
                           font-weight-bolder opacity-7" style="color:black !important">ID</th>
                         <th class="text-uppercase text-secondary text-xxs
-                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Name </th>
+                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Package Title </th>
                           <th class="text-uppercase text-secondary text-xxs
-                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Type  </th>
+                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Hotel  </th>
                           <th class="text-uppercase text-secondary text-xxs
-                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Perks </th>
+                          font-weight-bolder opacity-7 ps-2" style="color:black !important">Days </th>
                           <th class="text-uppercase text-secondary text-xxs
-                          font-weight-bolder opacity-7 ps-2"style="color:black !important">Days </th>
+                          font-weight-bolder opacity-7 ps-2"style="color:black !important">Nights </th>
                           <th class="text-uppercase text-secondary text-xxs
                           font-weight-bolder opacity-7 ps-2"style="color:black !important">Action </th>
                       </tr>
@@ -51,7 +51,7 @@
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column
                               justify-content-center">
-                              <p class="mb-0 text-sm"><?php echo e($item->name); ?></p>
+                              <p class="mb-0 text-sm"><?php echo e($item->package_title); ?></p>
                             </div>
                           </div>
                         </td>
@@ -59,15 +59,7 @@
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column
                               justify-content-center">
-                              <p class="mb-0 text-sm"><?php echo e($item->type); ?></p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div class="d-flex flex-column
-                              justify-content-center">
-                              <p class="mb-0 text-sm"><?php echo e($item->perks); ?></p>
+                              <p class="mb-0 text-sm"><?php echo e($item->hotel->name); ?></p>
                             </div>
                           </div>
                         </td>
@@ -76,6 +68,14 @@
                             <div class="d-flex flex-column
                               justify-content-center">
                               <p class="mb-0 text-sm"><?php echo e($item->days); ?></p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column
+                              justify-content-center">
+                              <p class="mb-0 text-sm"><?php echo e($item->nights); ?></p>
                             </div>
                           </div>
                         </td>

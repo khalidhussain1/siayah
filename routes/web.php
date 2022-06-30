@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Hotel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,7 +39,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth:web']], function () {
         return view('admin.add_hotels');
     });
     Route::get('/packages', function () {
-        return view('admin.packages');
+         $hotels=Hotel::all();
+        return view('admin.packages')->with('hotels',$hotels);
     });
 
 

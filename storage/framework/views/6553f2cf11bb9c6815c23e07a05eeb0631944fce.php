@@ -60,31 +60,31 @@
                         <input type="hidden" class="form-control custom-border" placeholder=" id " name="id" value="<?php echo e($data->id); ?>">
                         <div class="form-row">
                             <div class="col">
-                                <lable>Psckage Name </lable>
-                                <input type="text" class="form-control custom-border" placeholder=" Name " name="name" value="<?php echo e($data->name); ?>">
+                                <lable>Psckage Title </lable>
+                                <input type="text" class="form-control custom-border" placeholder=" Name " name="package_title" value="<?php echo e($data->package_title); ?>">
                             </div>
                             <div class="col">
-                                <lable>Hotel Type</lable>
-                                <select class="custom-select" style="border-top:none;border-left:none" name="type" >
-                                    <!-- <option selected>Select Type  </option> -->
-                                    <option value="<?php echo e($data->type); ?>"><?php echo e($data->type); ?></option>
-                                    <option value="Five Star">Five Star </option>
-                                    <option value="Four Star">Four Star   </option>
-                                    <option value="Three Star">Three Star   </option>
+                                <lable>Price </lable>
+                                <input type="text" class="form-control custom-border" placeholder=" Name " name="price" value="<?php echo e($data->price); ?>">
+                               
 
                                 </select>
                             </div>
                         </div>
                         <div class="form-row mt-3">
                          
-                            <div class="col">
-                                <lable>Perks  </lable>
-                                <select class="custom-select" style="border-top:none;border-left:none" name="perks">
-                                    <!-- <option selected>Select Perk  </option> -->
-                                    <option value="<?php echo e($data->perks); ?>"><?php echo e($data->perks); ?></option>
-                                    <option value="Lunch + Break Fast">Lunch + Break Fast  </option>
-                           
-
+                        <div class="col-md-6">
+                                <lable>Nights </lable>
+                                <select class="custom-select" style="border-top:none;border-left:none" name="nights" >
+                                    <!-- <option selected>Select Days </option> -->
+                                    <option value="<?php echo e($data->days); ?>"><?php echo e($data->nights); ?></option>
+                                    <option value="1">1 </option>
+                                    <option value="2">2 </option>
+                                    <option value="3">3 </option>
+                                    <option value="4">4 </option>
+                                    <option value="5">5 </option>
+                                    <option value="6">6 </option>
+                                    <option value="">7 </option>
                                 </select>
                             </div>
                             <div class="col-md-6">

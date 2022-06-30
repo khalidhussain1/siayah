@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\PaymentRequest;
 use App\Models\Covidtest;
 use App\Models\HotelImage;
+use App\Models\PackageImage;
+use App\Models\PackageFacility;
+
 use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
@@ -244,23 +247,45 @@ public function hotels(Request $request){
 
 
   public function p(){
+
     $data=Package::all();
-    // dd($data);
       return view('admin.packagesview')->with('data',$data);
   }
 
 public function packagesubmission(Request $request){
+//package basic details submission 
 $data= new Package();
-$data->name=$request->name;
-$data->type=$request->type;
-$data->perks=$request->perks;
+$data->package_title=$request->package_title;
+$data->hotel_id=$request->hotel_id;
+$data->price=$request->price;
 $data->days=$request->days;
-$data->images=json_encode($request->name);
+$data->nights=$request->nights;
 $data->save();
+//Storing package images 
+$record=Package::latest()->first();
+$files=$request->file('images');
+if ($request->hasFile('images')) {
+    foreach($files as $file) {
+     $packagesmodel=new PackageImage();
+    $extension=$file->extension();
+    $fileName=rand(1,100)."_.".$extension;
+    $file->move('img/packageimages',$fileName);
+    $packagesmodel->package_id=$record->id;
+    $packagesmodel->image=$fileName;
+     $packagesmodel->save();
+    }
+}
+//Storing facilities 
+$facilities=$request->facilities;
+foreach($facilities as $facility) {
+    $facilitiesmodel=new PackageFacility();
+    $facilitiesmodel->package_id=$record->id;
+    $facilitiesmodel->facilities=implode(",",(array)$facility);
+    $facilitiesmodel->save();
+   }
 Alert::success('Congrats', 'Package Added Succefuly  ');
 return redirect()->back();
 }
-
 public function update_package($id){
    $data=Package::find($id)->first();
 
@@ -269,10 +294,10 @@ public function update_package($id){
 
 public function update_package_submission(Request $request){
 $data=Package::find($request->id);
-$data->name=$request->name;
-$data->type=$request->type;
-$data->perks=$request->perks;
+$data->package_title=$request->package_title;
 $data->days=$request->days;
+$data->nights=$request->nights;
+$data->price=$request->price;
 $data->save();
 Alert::success('Congrats', 'Package updated Successfuly ');
 return redirect()->back();
