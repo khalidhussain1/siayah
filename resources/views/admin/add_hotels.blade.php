@@ -72,22 +72,27 @@
                                 <lable>Price Range </lable>
                                 <input type="text" class="form-control custom-border" placeholder="Price" name="price" >
                             </div>
-                            <div class="col-md-6">
-                                <lable>Status </lable>
-                                <select class="custom-select" style="border-top:none;border-left:none" name="status" >
-                                    <option selected>Select Status </option>
-                                    <option value="1">Active </option>
-                                    <option value="2">Disable </option>
-
-                                </select>
+                            
+                            <div class="col-md-3">
+                                <lable>Cover </lable>
+                                <input type="file" class="form-control custom-border" placeholder="Price" name="cover" >
+                            </div>
+                            <div class="col-md-3">
+                                <lable>Images  </lable>
+                                <input type="file" class="form-control custom-border" id="customFile" name="images[]" multiple />
                             </div>
                         </div>
+                        </div>
                         <div class="form-row mt-3">
-                        
-                          <div class="col-md-6">
-                                <lable>Images  </lable>
-                                <input type="file" class="form-control" id="customFile" name="images[]" multiple />
-                            </div>
+                                   <div class="w-100" style="   
+                                        padding: 3px;   
+                                        width: 1020px;
+                                        margin-left: 18px;">
+                                   <textarea style="border:2px solid grey;margin-top:125px" class="form-control" id="textAreaExample1" rows="4" name="description"></textarea>
+                            <!-- <label class="form-label" for="textAreaExample">Message</label> -->
+                                   </div>              
+                         
+                      
                         </div>
                         <div class="mt-3">
                             <button class="btn btn-primary" style="float: right;">

@@ -17,9 +17,12 @@ class CreateHotelsTable extends Migration
             $table->id();
             $table->text('name')->nullable();
             $table->text('address')->nullable();
+            $table->text('description')->nullable();
+            $table->text('cover')->nullable();
+            $table->text('path')->nullable();
             $table->text('price')->nullable();
             $table->text('images')->nullable();
-            $table->text('status')->nullable();
+            // $table->text('status')->nullable();
             $table->timestamps();
         });
     }

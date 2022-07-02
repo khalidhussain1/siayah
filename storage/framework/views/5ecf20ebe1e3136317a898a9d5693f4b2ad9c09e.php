@@ -1,8 +1,8 @@
-@extends('admin.layout.main')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Poppins');
+  @import  url('https://fonts.googleapis.com/css?family=Poppins');
 body, html{
   margin: 0;
   background: #2b2927;
@@ -74,12 +74,12 @@ img{
   display: block;
   transition-duration: .3s;
 }
-@media only screen and (max-width: 900px) {
+@media  only screen and (max-width: 900px) {
     .container {
         width: calc(50% - 6px);
     }
 }
-@media only screen and (max-width: 400px) {
+@media  only screen and (max-width: 400px) {
     .container {
         width: 100%;
     }
@@ -88,14 +88,22 @@ img{
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="container-all">
-@foreach($data  as $item )
+    <h1 style="color:pink">Facilities </h1>
+<ul>
+<?php $__currentLoopData = $facility; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<li><?php echo e($item->facilities); ?></li>
+                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 </ul>
+<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
 <div class="container">
-  <img src="{{ asset('img/bookingimages/'.$item->image) }}" alt="">
+  <img src="<?php echo e(asset('img/packageimages/'.$item->image)); ?>" alt="">
    <span class="title"> Siyaha </span>
   
 </div>
-                 @endforeach
+                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH H:\xampp\htdocs\siayah\resources\views/admin/packageimages.blade.php ENDPATH**/ ?>

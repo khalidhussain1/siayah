@@ -207,11 +207,24 @@ return view('admin.flight_one_way_booking')->with('data',$data)->with('data2',$d
 }
 
 public function hotelsubmission(Request $request){
+
+// dd($request->cover);
+//storing cover image 
+if ($request->hasFile('cover')) {
+    $filee = $request->cover;
+    $imageName =  rand(1,100) . '.' . $filee->getClientOriginalExtension();
+    $imagePath = $filee->move(public_path('img/bookingimages'), $imageName);
+}
+
+
+
   $data=new Hotel();
   $data->name=$request->name;
   $data->address=$request->address;
   $data->price=$request->price;
-   $data->status=$request->status;
+   $data->cover= $imageName;
+   $data->path="img/bookingimages";
+   $data->description= $request->description;
   $data->save();
   $record=Hotel::latest()->first();
  
@@ -272,6 +285,8 @@ if ($request->hasFile('images')) {
     $file->move('img/packageimages',$fileName);
     $packagesmodel->package_id=$record->id;
     $packagesmodel->image=$fileName;
+    $packagesmodel->path="img/packageimages";
+
      $packagesmodel->save();
     }
 }
@@ -357,6 +372,14 @@ $data=HotelImage::where('hotel_id',$id)->get();
 return view('admin.hotelimages')->with('data',$data);
 
 
+}
+ 
+public function viewpackage($id){
+ 
+    $data=PackageImage::where('package_id',$id)->get();
+    $facility=PackageFacility::where('package_id',$id)->get();
+
+    return view('admin.packageimages')->with('data',$data)->with('facility',$facility);
 }
 
 }

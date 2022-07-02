@@ -83,18 +83,23 @@
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column
                               justify-content-center">
-          <div class="">
-          <button class="btn btn-primary" style="    padding: 0px;
-    margin: 0px;
-    height: 20px;
-    width: 52px;
-    font-size: 12px;" data-toggle="modal" data-target="#exampleModal"><a href="<?php echo e(route('admin.update', ['id'=>$item->id])); ?>" style="color:white;text-decoration:none">Edit</a></button>
-         <button class="btn btn-danger" style="    padding: 0px;
-    margin: 0px;
-    height: 20px;
-    width: 52px;
-    font-size: 12px;"><a href="<?php echo e(route('admin.delete', ['id'=>$item->id])); ?>" style="color:white;text-decoration:none">Delete</a></button>
-          </div>
+                                          <div class="">
+                                          <button class="btn btn-primary" style="    padding: 0px;
+                                    margin: 0px;
+                                    height: 20px;
+                                    width: 52px;
+                                    font-size: 12px;" data-toggle="modal" data-target="#exampleModal"><a href="<?php echo e(route('admin.update', ['id'=>$item->id])); ?>" style="color:white;text-decoration:none">Edit</a></button>
+                                        <button class="btn btn-danger" style="    padding: 0px;
+                                    margin: 0px;
+                                    height: 20px;
+                                    width: 52px;
+                                    font-size: 12px;"><a href="<?php echo e(route('admin.delete', ['id'=>$item->id])); ?>" style="color:white;text-decoration:none">Delete</a></button>
+                                    <button class="btn btn-danger" style="    padding: 0px;
+                                    margin: 0px;
+                                    height: 20px;
+                                    width: 52px;
+                                    font-size: 12px;"><a href="<?php echo e(route('admin.viewpackage', ['id'=>$item->id])); ?>" style="color:white;text-decoration:none">View </a></button>
+                                          </div>
 
 
 

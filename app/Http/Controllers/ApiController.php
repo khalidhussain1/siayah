@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Package;
+use App\Models\PackageFacility;
+use App\Models\PackageImage;
 use App\Models\Hotel;
 use App\Models\FlightOneWayBooking;
 use App\Models\FlightTwoWayBooking;
@@ -203,7 +205,11 @@ function login(Request $request){
     public function get_packages(Request $request)
     {
 
-        $data=Package::All();
+        $packages=Package::All();
+         $images=PackageImage::All();
+         $facilities=Packagefacility::All();
+
+        $data = [$packages,$images, $facilities];
             return response()->json([
                 'status' => '200',
                 'data'    => $data

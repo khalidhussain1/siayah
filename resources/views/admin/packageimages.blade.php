@@ -88,9 +88,16 @@ img{
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="container-all">
+    <h1 style="color:pink">Facilities </h1>
+<ul>
+@foreach($facility  as $item )
+<li>{{$item->facilities}}</li>
+                 @endforeach
+                 </ul>
 @foreach($data  as $item )
+
 <div class="container">
-  <img src="{{ asset('img/bookingimages/'.$item->image) }}" alt="">
+  <img src="{{ asset('img/packageimages/'.$item->image) }}" alt="">
    <span class="title"> Siyaha </span>
   
 </div>
